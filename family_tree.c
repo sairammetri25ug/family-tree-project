@@ -22,6 +22,29 @@ void print_family_relationships(
     Person *maternal_grandmother
 );
 
+void free_family_tree(
+    Person *paternal_grandfather,
+    Person *paternal_grandmother,
+    Person *maternal_grandfather,
+    Person *maternal_grandmother,
+    Person *father,
+    Person *mother,
+    Person *self
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Person *create_person(void)
 {
     Person *person = malloc(sizeof(Person));
@@ -101,6 +124,16 @@ int main(void)
         maternal_grandfather,
         maternal_grandmother
     );
+    free_family_tree(
+        paternal_grandfather,
+        paternal_grandmother,
+        maternal_grandfather,
+        maternal_grandmother,
+        father,
+        mother,
+        self
+    );
+
 
     return 0;
 }
@@ -148,4 +181,22 @@ void print_family_relationships(
            maternal_grandmother->name, maternal_grandmother->age);
 
     printf("\n=================================\n");
+}
+
+void free_family_tree(
+    Person *paternal_grandfather,
+    Person *paternal_grandmother,
+    Person *maternal_grandfather,
+    Person *maternal_grandmother,
+    Person *father,
+    Person *mother,
+    Person *self)
+{
+    free(paternal_grandfather);
+    free(paternal_grandmother);
+    free(maternal_grandfather);
+    free(maternal_grandmother);
+    free(father);
+    free(mother);
+    free(self);
 }
